@@ -3,7 +3,7 @@
 
 class Point {
 public:
-	Point() : x{}, y{} 
+	Point() : x{}, y{}
 	{}
 	Point(double, double);
 	Point operator+(const Point& obj);
@@ -21,11 +21,8 @@ private:
 	double y;
 };
 
-Point::Point(double _x, double _y) : x{_x}, y{_y}
-{
-	x = _x;
-	y = _y;
-}
+Point::Point(double _x, double _y) : x{ _x }, y{ _y }
+{}
 Point Point::operator+(const Point& obj)
 {
 	Point tmp;
@@ -58,11 +55,11 @@ Point Point::operator/(const Point& obj)
 }
 bool Point::operator>(const Point& obj)
 {
-	return x > obj.x && y > obj.y ? true : false;
+	return x > obj.x || y > obj.y ? true : false;
 }
 bool Point::operator<(const Point& obj)
 {
-	return x < obj.x&& y < obj.y ? true : false;
+	return x < obj.x || y < obj.y ? true : false;
 }
 bool Point::operator==(const Point& obj)
 {
@@ -70,7 +67,7 @@ bool Point::operator==(const Point& obj)
 }
 bool Point::operator!=(const Point& obj)
 {
-	return x != obj.x && y != obj.y ? true : false;
+	return x != obj.x || y != obj.y ? true : false;
 }
 std::ostream& operator<<(std::ostream& os, const Point& obj)
 {
