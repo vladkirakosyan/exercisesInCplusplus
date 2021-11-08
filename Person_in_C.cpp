@@ -35,3 +35,19 @@ Person& operator=(Person* that, const Person& obj) {
 void Person_dtor(Person * that) {
 	return;
 }
+std::ostream& operator<<(std::ostream& os, const Person& obj) {
+	os << "My name is " << obj._name << '\n';
+	os << "My surname is " << obj._surname << '\n';
+	os << "And email is " << obj._email << '\n';
+	return os;
+}
+
+int main() {
+	Person p1;
+	Person_parameter_ctor(&p1, "George", "Washington", "george@gmail.com");
+	Person p2;
+	Person_copy_ctor(&p2, p1);
+	std::cout << p2;
+	
+}
+
