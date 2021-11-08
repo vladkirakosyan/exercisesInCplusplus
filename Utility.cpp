@@ -24,7 +24,7 @@ bool Utility::isNumber(const std::string& num)
 		}
 		if (num[i] == '.') ++counter;
 	}
-	if (counter > 1) return 0;
+	if (counter != 1) return 0;
 	return 1;
 }
 bool Utility::isInteger(const std::string& num)
@@ -51,16 +51,16 @@ bool Utility::isFloat(const std::string& num)
 		}
 		if (num[i] == '.') ++counter;
 	}
-	if (counter > 1) return 0;
+	if (counter != 1) return 0;
 	return 1;
 }
 bool Utility::isBoolean(const std::string& num)
 {
-	if (num == "" || num == "0" || num == "1") { 
-		return true; 
+	if (num == "" || num == "0") { 
+		return false; 
 	}
 	else {
-		return false;
+		return true;
 	}
 }
 
@@ -79,19 +79,19 @@ int main() {
 	std::string number;
 	std::cout << "Insert number, please.\n";
 	std::cin >> number;
-
+	std::cout << "0 means is not a number, 1 is the opposite.\n";
 	std::cout << Utility::isNumber(number) << std::endl;
 	std::cout << Utility::isInteger(number) << std::endl;
 
 	std::cout << "Insert Url, please.\n";
 	std::string url;
 	std::cin >> url;
-	std::cout << Utility::isURL(url);
+	std::cout << Utility::isURL(url) << std::endl;
 
 	std::cout << "Insert email, please.\n";
 	std::string email;
 	std::cin >> email;
-	std::cout << Utility::isEmail(email);
+	std::cout << Utility::isEmail(email) << std::endl;
 
 	
 	return 0;
